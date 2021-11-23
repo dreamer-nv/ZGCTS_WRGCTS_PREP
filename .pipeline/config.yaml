@@ -1,0 +1,19 @@
+general:
+  collectTelemetryData: false
+  verbose: true
+steps:
+  gctsDeploy:
+    host: 'http://54.227.214.122:8000'
+    client: '100'
+    abapCredentialsId: 'gCTS_target'
+    repository: 'dreamer-nv-zgcts_wrgcts_prep'
+  gctsExecuteABAPUnitTests:
+    host: 'http://54.227.214.122:8000'
+    client: '100'
+    abapCredentialsId: 'gCTS_target'
+    repository: 'dreamer-nv-zgcts_wrgcts_prep'
+  gctsRollback:
+    host: 'http://54.227.214.122:8000'
+    client: '100'
+    abapCredentialsId: 'gCTS_target'
+    repository: 'dreamer-nv-zgcts_wrgcts_prep'
