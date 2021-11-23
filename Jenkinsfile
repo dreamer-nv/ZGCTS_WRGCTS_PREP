@@ -25,4 +25,12 @@ pipeline {
             } //steps
         } //stage
     } //stages
+  post {
+        stage ('Rollback Commit') {
+            steps {
+                gctsRollback script: this
+            } //steps
+        } //stage
+      } //failure
+    } //post    
 }//pipeline
