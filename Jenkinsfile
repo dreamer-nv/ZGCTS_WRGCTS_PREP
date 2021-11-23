@@ -26,6 +26,7 @@ pipeline {
         } //stage
     } //stages
   post {
+      failure {
         stage ('Rollback Commit') {
             steps {
                 gctsRollback script: this
