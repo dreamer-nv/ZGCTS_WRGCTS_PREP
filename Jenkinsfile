@@ -23,7 +23,7 @@ pipeline {
                         } catch (Throwable err) { // catch all exceptions
                             globalPipelineEnvironment.addError(this, err)
                             throw err
-                        } try
+                        } // try
                     } // script
                 } // steps
             } //stage
