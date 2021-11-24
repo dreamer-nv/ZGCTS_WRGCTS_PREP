@@ -3,7 +3,7 @@
 
 
 node {
-    agent any
+    //agent any
     stages {
         stage ('Setup') {
             steps {
