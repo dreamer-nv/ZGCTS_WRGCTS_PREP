@@ -3,7 +3,7 @@
 
 pipeline {
     agent any
-//    stages {
+    stages {
         stage ('Setup') {
             steps {
                 setupCommonPipelineEnvironment script: this
@@ -14,18 +14,21 @@ pipeline {
                 gctsDeploy script: this
             } //steps
         } //stage
-        try      {   
             stage ('Run Unit Tests') {
                 steps {
-                    gctsExecuteABAPUnitTests script: this
+                    try      {   
+                        gctsExecuteABAPUnitTests script: this
+                    } catch (Throwable err) { // catch all exceptions    
+                        aunit_fails = true
+                    } // try-catch
                 } //steps
             } //stage
-        } catch (Throwable err) { // catch all exceptions       
-            stage ('Rollback Commit') {
-                steps {
-                    gctsRollback script: this
-                } //steps
-            } //stage
-        } // try-catch
-//    } //stages
+            if (aunit_fails == true) {
+                stage ('Rollback Commit') {
+                    steps {
+                        gctsRollback script: this
+                    } //steps
+                } //stage
+            } // if
+    } //stages
 }//pipeline
