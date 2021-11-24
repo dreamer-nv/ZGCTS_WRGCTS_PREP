@@ -1,8 +1,9 @@
+#!groovy
 @Library('piper-lib-os') _
 
 
 pipeline {
-    agent any
+    //agent any
     stages {
         stage ('Setup') {
             steps {
