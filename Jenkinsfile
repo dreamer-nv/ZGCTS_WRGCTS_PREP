@@ -3,6 +3,7 @@
 
 
 pipeline {
+    node {
     //agent any
     stages {
         stage ('Setup') {
@@ -32,4 +33,5 @@ pipeline {
                 } //stage
             } // if
     } //stages
+    }
 }//pipeline
