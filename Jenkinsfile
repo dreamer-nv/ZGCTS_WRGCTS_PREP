@@ -21,8 +21,10 @@ pipeline {
                     //script {
                        // aunit_passed = true
                         //try {
-                            gctsExecuteABAPUnitTests script: this
-                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
+                            
+                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                        gctsExecuteABAPUnitTests script: this
+                    }
                         //} catch (buildResult: 'SUCCESS', stageResult: 'FAILURE') { // catch all exceptions
                         //    aunit_passed = false
                         //} // try
