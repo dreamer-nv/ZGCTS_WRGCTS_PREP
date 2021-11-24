@@ -1,4 +1,4 @@
-#!groovy
+#!/usr/bin/env groovy
 @Library('piper-lib-os') _
 
 
@@ -15,7 +15,7 @@ pipeline {
                 gctsDeploy script: this
             } //steps
         } //stage
-        node {
+
             stage ('Run Unit Tests') {
                 steps {
                     try      {   
@@ -25,7 +25,7 @@ pipeline {
                     } // try-catch
                 } //steps
             } //stage
-        } //node
+
             if (aunit_fails == true) {
                 stage ('Rollback Commit') {
                     steps {
