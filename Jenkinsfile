@@ -17,14 +17,16 @@ pipeline {
             } //stage
             stage ('Run Unit Tests') {
                 steps {
-                    script {
-                        aunit_passed = true
-                        try {
+                
+                    //script {
+                       // aunit_passed = true
+                        //try {
                             gctsExecuteABAPUnitTests script: this
-                        } catch (buildResult: 'SUCCESS', stageResult: 'FAILURE') { // catch all exceptions
-                            aunit_passed = false
-                        } // try
-                    } // script
+                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
+                        //} catch (buildResult: 'SUCCESS', stageResult: 'FAILURE') { // catch all exceptions
+                        //    aunit_passed = false
+                        //} // try
+                    //} // script
                 } // steps
             } //stage
             stage ('Rollback Commit') {
