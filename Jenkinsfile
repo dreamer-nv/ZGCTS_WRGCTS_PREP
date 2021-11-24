@@ -21,7 +21,7 @@ pipeline {
                         aunit_passed = true
                         try {
                             gctsExecuteABAPUnitTests script: this
-                        } catch (Exception e) { // catch all exceptions
+                        } catch (buildResult: 'SUCCESS', stageResult: 'FAILURE') { // catch all exceptions
                             aunit_passed = false
                         } // try
                     } // script
