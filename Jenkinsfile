@@ -4,35 +4,35 @@
 
 node {
     //agent any
-    stages {
+    //stages {
         stage ('Setup') {
-            steps {
+            //steps {
                 setupCommonPipelineEnvironment script: this
-            } //steps
+            //} //steps
         } //stage
         stage ('Deploy Commit') {
-            steps {
+            //steps {
                 gctsDeploy script: this
-            } //steps
+            //} //steps
         } //stage
 
             stage ('Run Unit Tests') {
-                steps {
+                //steps {
                     try      {   
                         gctsExecuteABAPUnitTests script: this
                     } catch (Throwable err) { // catch all exceptions    
                         aunit_fails = true
                     } // try-catch
-                } //steps
+                //} //steps
             } //stage
 
             if (aunit_fails == true) {
                 stage ('Rollback Commit') {
-                    steps {
+                    //steps {
                         gctsRollback script: this
-                    } //steps
+                    //} //steps
                 } //stage
             } // if
-    } //stages
+    //} //stages
 
 }//pipeline
