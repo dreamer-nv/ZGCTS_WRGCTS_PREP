@@ -28,7 +28,7 @@ pipeline {
                 } // steps
             } //stage
             stage ('Rollback Commit') {
-                when { expression aunit_passed == false }
+                when { expression { aunit_passed == false } }
                 steps {
                     gctsRollback script: this
                 } // steps
