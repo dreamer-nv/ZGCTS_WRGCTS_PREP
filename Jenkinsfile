@@ -31,13 +31,13 @@ pipeline {
         stage ('Rollback Commit') {
             when { expression { checks_failed == true } }
             steps {
-                echo 'Build success!'
+                gctsRollback script: this
             } // steps
         } //stage
         stage ('Success build') {
             when { expression { checks_failed == false } }
             steps {
-                gctsRollback script: this
+                echo 'Build success!'
             } // steps
         } //stage        
     } //stages
