@@ -3,7 +3,7 @@
 
 pipeline {
     agent any
-    stages {
+//    stages {
         stage ('Setup') {
             steps {
                 setupCommonPipelineEnvironment script: this
@@ -27,5 +27,5 @@ pipeline {
                 } //steps
             } //stage
         } // try-catch
-    } //stages
+//    } //stages
 }//pipeline
