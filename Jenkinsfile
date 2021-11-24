@@ -26,7 +26,7 @@ pipeline {
                             currentBuild.result = 'SUCCESS'
                             currentStage.result = 'FAILURE'
                         } // try
-                    //} // script
+                    } // script
                 } // steps
             } //stage
             stage ('Rollback Commit') {
