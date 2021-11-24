@@ -20,7 +20,7 @@ pipeline {
             } //stage
             stage ('Run Unit Tests') {
                 steps {
-                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
+                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                         gctsExecuteABAPUnitTests script: this
                         ${params.checks_failed} = true
                         } // try
