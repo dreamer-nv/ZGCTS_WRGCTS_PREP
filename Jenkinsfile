@@ -17,17 +17,15 @@ pipeline {
             } //stage
             stage ('Run Unit Tests') {
                 steps {
-                
-                    //script {
-                       // aunit_passed = true
-                        //try {
-                            
-                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                        gctsExecuteABAPUnitTests script: this
-                    }
-                        //} catch (buildResult: 'SUCCESS', stageResult: 'FAILURE') { // catch all exceptions
-                        //    aunit_passed = false
-                        //} // try
+                    script {
+                        aunit_passed = true
+                        try {
+                            gctsExecuteABAPUnitTests script: this
+                        } catch (err) { // catch all exceptions
+                            aunit_passed = false
+                            currentBuild.result = 'SUCCESS'
+                            currentStage.result = 'FAILURE'
+                        } // try
                     //} // script
                 } // steps
             } //stage
