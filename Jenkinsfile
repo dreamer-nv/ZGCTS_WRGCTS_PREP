@@ -34,5 +34,5 @@ pipeline {
                 } //stage
             } // if
     } //stages
-    }
+
 }//pipeline
