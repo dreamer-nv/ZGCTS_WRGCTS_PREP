@@ -18,16 +18,17 @@ pipeline {
             stage ('Run Unit Tests') {
                 steps {
                     script {
+                        aunit_passed = true
                         try {
                             gctsExecuteABAPUnitTests script: this
                         } catch (Exception e) { // catch all exceptions
-                            echo 'AUnit fails!'
+                            aunit_passed = false
                         } // try
                     } // script
                 } // steps
             } //stage
             stage ('Rollback Commit') {
-                when { changelog 'AUnit fails!' }
+                when { expression aunit_passed == false }
                 steps {
                     gctsRollback script: this
                 } // steps
