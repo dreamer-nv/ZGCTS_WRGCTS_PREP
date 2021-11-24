@@ -14,24 +14,18 @@ pipeline {
                 gctsDeploy script: this
             } //steps
         } //stage
-        stage ('Run Unit Tests') {
-            steps {
-                gctsExecuteABAPUnitTests script: this
-            } //steps
-        } //stage     
-        stage ('Rollback Commit') {
-            steps {
-                gctsRollback script: this
-            } //steps
-        } //stage
+        try      {   
+            stage ('Run Unit Tests') {
+                steps {
+                    gctsExecuteABAPUnitTests script: this
+                } //steps
+            } //stage
+        } catch (Throwable err) { // catch all exceptions       
+            stage ('Rollback Commit') {
+                steps {
+                    gctsRollback script: this
+                } //steps
+            } //stage
+        } // try-catch
     } //stages
-  post {
-      failure {
-        stage ('Rollback Commit') {
-            steps {
-                gctsRollback script: this
-            } //steps
-        } //stage
-      } //failure
-    } //post    
 }//pipeline
