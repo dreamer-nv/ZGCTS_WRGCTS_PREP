@@ -17,7 +17,14 @@ pipeline {
             } //stage
             stage ('Run Unit Tests') {
                 steps {
-                    gctsExecuteABAPUnitTests script: this
+                    script {
+                        try {
+                            gctsExecuteABAPUnitTests script: this
+                        } catch (Throwable err) { // catch all exceptions
+                            globalPipelineEnvironment.addError(this, err)
+                            throw err
+                        } try
+                    } // script
                 } // steps
             } //stage
             stage ('Rollback Commit') {
