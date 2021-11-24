@@ -22,7 +22,7 @@ pipeline {
                     try {
                         gctsExecuteABAPUnitTests script: this
                     } catch (err) {
-                        currentBuild.result = 'SUCCESS'
+                        unstable('AUnit test failed!')
                         checks_failed = true
                     } // try
                 } // script
