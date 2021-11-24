@@ -17,10 +17,12 @@ node {
             aunit_fails = true
         } // try-catch
     } //stage
-    echo aunit_fails
     if (aunit_fails == true) {
+        echo '-------------------> aunit fails'
         stage ('Rollback Commit') {
             gctsRollback script: this
         } //stage
-    } //if
+    } else {
+        echo '-------------------> aunit passes'
+    }//if
 } //node
