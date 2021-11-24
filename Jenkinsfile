@@ -21,15 +21,13 @@ pipeline {
                         try {
                             gctsExecuteABAPUnitTests script: this
                         } catch (Exception e) { // catch all exceptions
-                            //globalPipelineEnvironment.addError(this, err)
-                            //throw err
-                            echo 'AUnit error:' + e.toString()
+                            echo 'AUnit fails!'
                         } // try
                     } // script
                 } // steps
             } //stage
             stage ('Rollback Commit') {
-                when { changelog 'execution of unit tests failed' }
+                when { changelog 'AUnit fails!' }
                 steps {
                     gctsRollback script: this
                 } // steps
