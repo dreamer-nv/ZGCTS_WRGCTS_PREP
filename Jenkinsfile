@@ -2,7 +2,7 @@
 @Library('piper-lib-os') _
 
 
-pipeline {
+node {
     agent any
     stages {
         stage ('Setup') {
