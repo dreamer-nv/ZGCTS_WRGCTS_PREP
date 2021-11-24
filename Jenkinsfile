@@ -23,8 +23,8 @@ pipeline {
                             gctsExecuteABAPUnitTests script: this
                         } catch (err) { // catch all exceptions
                             aunit_passed = false
-                            currentBuild.result = 'FAILURE'
-                            //stageResult.result = 'FAILURE'
+                            buildResult = 'SUCCESS'
+                            stageResult = 'FAILURE'
                         } // try
                     } // script
                 } // steps
