@@ -4,9 +4,6 @@
 
 pipeline {
     agent any
-    parameters {
-        booleanParam(name: 'CHECKS_FAILED', defaultValue: false, description: '')
-    }
     stages {
         stage ('Setup') {
             steps {
@@ -20,14 +17,19 @@ pipeline {
         } //stage
         stage ('Run Unit Tests') {
             steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    gctsExecuteABAPUnitTests script: this
-                    ${params.CHECKS_FAILED} = true
-                } // catchError
+                script {
+                    checks_failed = false
+                    try {
+                        gctsExecuteABAPUnitTests script: this
+                    } catch (err) {
+                        currentBuild.result = 'SUCCESS'
+                        checks_failed = true
+                    } // try
+                } // script
             } // steps
         } //stage
         stage ('Rollback Commit') {
-            when { expression { ${params.checks_failed} == true } }
+            when { expression { checks_failed == true } }
             steps {
                 gctsRollback script: this
             } // steps
