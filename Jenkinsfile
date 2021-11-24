@@ -2,28 +2,29 @@
 @Library('piper-lib-os') _
 
 
-node {
-    stage ('Setup') {
-        setupCommonPipelineEnvironment script: this
-    } //stage
-    stage ('Deploy Commit') {
-        gctsDeploy script: this
-    } //stage
-    stage ('Run Unit Tests') {
-        try      {
-            aunit_fails = false
-            gctsExecuteABAPUnitTests script: this
-        } catch (Throwable err) { // catch all exceptions    
-            aunit_fails = true
-        } // try-catch
-    } //stage
-    //if (aunit_fails == true) {
-        echo '-------------------> aunit fails'
-        stage ('Rollback Commit') {
-            when { expression { aunit_fails == 'true' } }
-            gctsRollback script: this
-        } //stage
-    //} else {
-        echo '-------------------> aunit passes'
-    //}//if
-} //node
+pipeline {
+    agent any
+        stages {
+            stage ('Setup') {
+                steps {
+                    setupCommonPipelineEnvironment script: this
+                } // steps
+            } //stage
+            stage ('Deploy Commit') {
+                steps {
+                    gctsDeploy script: this
+                } // steps
+            } //stage
+            stage ('Run Unit Tests') {
+                steps {
+                    gctsExecuteABAPUnitTests script: this
+                } // steps
+            } //stage
+            stage ('Rollback Commit') {
+                when { changelog 'execution of unit tests failed' }
+                steps {
+                    gctsRollback script: this
+                } // steps
+            } //stage
+        } //stages
+} //pipeline
