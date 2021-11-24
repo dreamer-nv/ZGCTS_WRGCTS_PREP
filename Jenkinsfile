@@ -5,7 +5,7 @@
 pipeline {
     agent any
     parameters {
-        booleanParam(name: 'checks_failed', defaultValue: false)
+        booleanParam(name: 'CHECKS_FAILED', defaultValue: false, description: '')
     }
     stages {
         stage ('Setup') {
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     gctsExecuteABAPUnitTests script: this
-                    ${params.checks_failed} = true
+                    ${params.CHECKS_FAILED} = true
                 } // catchError
             } // steps
         } //stage
