@@ -12,7 +12,7 @@ pipeline {
         } //stage
         stage ('Deploy Commit') {
             steps {
-                gctsDeploy script: this
+               // gctsDeploy script: this
             } // steps
         } //stage
         stage ('Run Unit Tests') {
