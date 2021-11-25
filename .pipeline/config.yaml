@@ -22,3 +22,4 @@ steps:
     abapCredentialsId: 'gCTS_target'
     host: '54.227.214.122:44300'
     dockerPullImage: false
+    atcConfig: 'atcconfig.yml'
