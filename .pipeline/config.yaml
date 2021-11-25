@@ -3,23 +3,23 @@ general:
   verbose: true
 steps:
   gctsDeploy:
-    host: 'http://54.146.187.28:8000'
+    host: 'http://54.227.214.122:8000'
     client: '500'
     abapCredentialsId: 'gCTS_target'
     repository: 'dreamer-nv-zgcts_wrgcts_prep'
     remoteRepositoryURL: 'https://github.com/dreamer-nv/ZGCTS_WRGCTS_PREP'
   gctsExecuteABAPUnitTests:
-    host: 'http://54.146.187.28:8000'
-    client: '100'
+    host: 'https://54.227.214.122:44300'
+    client: '500'
     abapCredentialsId: 'gCTS_target'
     repository: 'dreamer-nv-zgcts_wrgcts_prep'
   gctsRollback:
-    host: 'http://54.146.187.28:8000'
-    client: '100'
+    host: 'http://54.227.214.122:8000'
+    client: '500'
     abapCredentialsId: 'gCTS_target'
     repository: 'dreamer-nv-zgcts_wrgcts_prep'
   abapEnvironmentRunATCCheck:
     abapCredentialsId: 'gCTS_target'
-    host: '54.146.187.28:44300'
+    host: '54.227.214.122:44300'
     dockerPullImage: false
     atcConfig: 'atcconfig.yml'
