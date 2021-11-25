@@ -17,3 +17,6 @@ steps:
     client: '500'
     abapCredentialsId: 'gCTS_target'
     repository: 'dreamer-nv-zgcts_wrgcts_prep'
+  abapEnvironmentRunATCCheck:
+    abapCredentialsId: 'gCTS_target'
+    host: 'http://54.227.214.122:8000'
