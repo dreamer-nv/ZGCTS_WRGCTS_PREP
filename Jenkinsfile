@@ -28,6 +28,18 @@ pipeline {
                 } // script
             } // steps
         } //stage
+
+        stage ('Run ATC Checks') {
+            steps {
+                script {
+                    abapEnvironmentRunATCCheck(
+                        abapCredentialsId: 'gCTS_target',
+                        atcConfig: 'atcconfig.yml',
+                        host: '54.227.214.122:44300',
+                        script: this
+                        )
+                } //script        
+        
         stage ('Rollback Commit') {
             when { expression { checks_failed == true } }
             steps {
