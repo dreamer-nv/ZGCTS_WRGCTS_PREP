@@ -20,3 +20,4 @@ steps:
   abapEnvironmentRunATCCheck:
     abapCredentialsId: 'gCTS_target'
     host: 'http://54.227.214.122:8000'
+    dockerPullImage: false
