@@ -7,6 +7,7 @@ steps:
     client: '500'
     abapCredentialsId: 'gCTS_target'
     repository: 'dreamer-nv-zgcts_wrgcts_prep'
+    remoteRepositoryURL: 'https://github.com/dreamer-nv/ZGCTS_WRGCTS_PREP'
   gctsExecuteABAPUnitTests:
     host: 'http://54.227.214.122:8000'
     client: '500'
