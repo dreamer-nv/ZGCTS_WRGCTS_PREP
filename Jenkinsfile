@@ -10,11 +10,11 @@ pipeline {
                 setupCommonPipelineEnvironment script: this
             } // steps
         } //stage
-        stage ('Deploy Commit') {
-            steps {
-               // gctsDeploy script: this
-            } // steps
-        } //stage
+//        stage ('Deploy Commit') {
+//            steps {
+//                gctsDeploy script: this
+//            } // steps
+//        } //stage
         stage ('Run Unit Tests') {
             steps {
                 script {
