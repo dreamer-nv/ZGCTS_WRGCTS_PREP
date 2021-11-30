@@ -19,5 +19,5 @@ steps:
     repository: 'dreamer-nv-zgcts_wrgcts_prep'
   abapEnvironmentRunATCCheck:
     abapCredentialsId: 'gCTS_target'
-    host: '54.227.214.122:44300'
+    host: 'gprd.sapds.ru:44300'
     atcConfig: 'atcconfig.yml'
