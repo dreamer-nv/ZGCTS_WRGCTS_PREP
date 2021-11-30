@@ -22,4 +22,3 @@ steps:
     host: 'gprd.sapds.ru:44300'
     atcConfig: 'atcconfig.yml'
     dockerPullImage: false
-    client: '500'
