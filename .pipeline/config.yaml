@@ -3,7 +3,7 @@ general:
   verbose: true
 steps:
   gctsDeploy:
-    host: 'http://54.227.214.122:8000'
+    host: 'http://gprd.sapds.ru:8000'
     client: '500'
     abapCredentialsId: 'gCTS_target'
     repository: 'dreamer-nv-zgcts_wrgcts_prep'
