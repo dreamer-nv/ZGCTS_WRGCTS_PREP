@@ -34,7 +34,8 @@ pipeline {
                 script {
                     try {
                         abapEnvironmentRunATCCheck script: this
-                        publishIssues failOnError: true
+                        def checkstyle = scanForIssues tool: checkStyle(pattern: 'ATCResults.xml')
+                        publishIssues issues: [checkstyle], failOnError: true
                     } catch (err) {
                         echo 'Exception occurred: ' + err.toString()
                         unstable('ATC check failed!')
