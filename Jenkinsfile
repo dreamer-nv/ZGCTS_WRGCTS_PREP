@@ -22,10 +22,7 @@ pipeline {
                     try {
                         gctsExecuteABAPUnitTests script: this
                     } catch (err) {
-                        //currentBuild.result = 'FAILURE'
-                        currentBuild.result = 'FAILED'
-                        //unstable('AUnit test failed!')
-                        echo 'AUnit tests failed!'
+                        unstable('AUnit test failed!')
                         checks_failed = true
                     } // try
                 } // script
@@ -38,9 +35,7 @@ pipeline {
                         abapEnvironmentRunATCCheck script: this
                         def checkstyle = scanForIssues tool: checkStyle(pattern: 'ATCResults.xml')
                         publishIssues issues: [checkstyle], failedTotalAll: 1 //, failOnError: true
-                        echo 'Current Build result: ' + currentBuild.result
                         if ( currentBuild.result == 'FAILURE' ) {
-                            //currentBuild.result = 'UNSTABLE'
                             echo 'ATC check failed!'
                             checks_failed = true
                         }
