@@ -1,4 +1,4 @@
-checkvariant: "PERFORMANCE_CHECKLIST_HDB"
+checkvariant: "ZWRGCTS_PERF_CHECK"
 atcobjects:
   package:
     - name: "ZGCTS_WRGCTS_PREP"
