@@ -33,7 +33,8 @@ pipeline {
             steps {
                 script {
                     try {
-                        abapEnvironmentRunATCCheck script: this
+                        def atcresult = abapEnvironmentRunATCCheck script: this
+                        echo 'ATC resul: ' + atcresult
                         def checkstyle = scanForIssues tool: checkStyle(pattern: 'ATCResults.xml')
                         publishIssues issues: [checkstyle]//, failOnError: true
                     } catch (err) {
