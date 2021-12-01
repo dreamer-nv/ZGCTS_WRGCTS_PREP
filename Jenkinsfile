@@ -38,6 +38,7 @@ pipeline {
                         unstable('ATC check failed!')
                         checks_failed = true
                     } // try
+                    publishIssues failOnError: true, tool: pmdParser(pattern: 'ATCResults.xml')
                 } // script
             } // steps
         } // stage
