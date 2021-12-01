@@ -22,7 +22,8 @@ pipeline {
                     try {
                         gctsExecuteABAPUnitTests script: this
                     } catch (err) {
-                        currentBuild.result = 'FAILURE'
+                        //currentBuild.result = 'FAILURE'
+                        currentBuild.result = 'FAILED'
                         //unstable('AUnit test failed!')
                         echo 'AUnit tests failed!'
                         checks_failed = true
