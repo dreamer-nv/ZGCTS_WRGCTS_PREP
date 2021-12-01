@@ -36,6 +36,7 @@ pipeline {
                         abapEnvironmentRunATCCheck script: this
                         publishIssues failOnError: true
                     } catch (err) {
+                        echo 'Exception occurred: ' + err.toString()
                         unstable('ATC check failed!')
                         checks_failed = true
                     } // try
