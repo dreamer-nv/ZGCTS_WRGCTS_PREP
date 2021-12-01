@@ -10,10 +10,49 @@ pipeline {
                 setupCommonPipelineEnvironment script: this
             } // steps
         } //stage
+        stage ('Deploy Commit') {
+            steps {
+                gctsDeploy script: this
+            } // steps
+        } //stage
+        stage ('Run Unit Tests') {
+            steps {
+                script {
+                    checks_failed = false
+                    try {
+                        gctsExecuteABAPUnitTests script: this
+                    } catch (err) {
+                        unstable('AUnit test failed!')
+                        checks_failed = true
+                    } // try
+                } // script
+            } // steps
+        } //stage
+
         stage ('Run ATC Checks') {
             steps {
-                abapEnvironmentRunATCCheck script: this
+                script {
+                    try {
+                        abapEnvironmentRunATCCheck script: this
+                    } catch (err) {
+                        unstable('ATC check failed!')
+                        checks_failed = true
+                    } // try
+                } // script
             } // steps
         } // stage
+        
+        stage ('Rollback Commit') {
+            when { expression { checks_failed == true } }
+            steps {
+                gctsRollback script: this
+            } // steps
+        } //stage
+        stage ('Success build') {
+            when { expression { checks_failed == false } }
+            steps {
+                echo 'Build success!'
+            } // steps
+        } //stage        
     } //stages
 } //pipeline
