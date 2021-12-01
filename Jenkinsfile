@@ -34,7 +34,7 @@ pipeline {
                 script {
                     try {
                         abapEnvironmentRunATCCheck script: this
-                        recordIssues failOnError: true, tool: xmlLint(pattern: 'ATCResults.xml')
+                        publishIssues failOnError: true
                     } catch (err) {
                         unstable('ATC check failed!')
                         checks_failed = true
