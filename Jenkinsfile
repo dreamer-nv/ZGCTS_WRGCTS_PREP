@@ -22,7 +22,9 @@ pipeline {
                     try {
                         gctsExecuteABAPUnitTests script: this
                     } catch (err) {
-                        unstable('AUnit test failed!')
+                        currentBuild.result = 'FAILURE'
+                        //unstable('AUnit test failed!')
+                        echo 'AUnit tests failed!'
                         checks_failed = true
                     } // try
                 } // script
@@ -37,7 +39,7 @@ pipeline {
                         publishIssues issues: [checkstyle], failedTotalAll: 1 //, failOnError: true
                         echo 'Current Build result: ' + currentBuild.result
                         if ( currentBuild.result == 'FAILURE' ) {
-                            currentBuild.result = 'UNSTABLE'
+                            //currentBuild.result = 'UNSTABLE'
                             echo 'ATC check failed!'
                             checks_failed = true
                         }
