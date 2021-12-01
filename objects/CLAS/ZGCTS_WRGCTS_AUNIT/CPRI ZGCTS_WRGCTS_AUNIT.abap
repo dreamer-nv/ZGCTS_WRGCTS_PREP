@@ -1,5 +1,6 @@
 private section.
 
+  methods SELECT .
   methods SUM
     importing
       !IV_1 type I

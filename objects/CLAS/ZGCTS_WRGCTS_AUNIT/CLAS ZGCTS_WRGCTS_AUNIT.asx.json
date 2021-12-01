@@ -17,7 +17,7 @@
    {
     "CLSNAME":"ZGCTS_WRGCTS_AUNIT",
     "CLSTYPE":0,
-    "UUID":"DnKZtCohHtyTjYt2WMz74Q==",
+    "UUID":"DnKZtCohHuyUta68g3bEow==",
     "REMOTE":""
    }
   ]
@@ -34,7 +34,7 @@
     "STATE":1,
     "RELEASE":0,
     "AUTHOR":"I079666",
-    "CREATEDON":"2021-11-23",
+    "CREATEDON":"2021-11-30",
     "CHANGEDBY":"",
     "CHANGEDON":"0000-00-00",
     "CHGDANYBY":"",
@@ -83,6 +83,12 @@
   [
    {
     "CLSNAME":"ZGCTS_WRGCTS_AUNIT",
+    "CMPNAME":"SELECT",
+    "CMPTYPE":1,
+    "MTDTYPE":0
+   },
+   {
+    "CLSNAME":"ZGCTS_WRGCTS_AUNIT",
     "CMPNAME":"SUM",
     "CMPTYPE":1,
     "MTDTYPE":0
@@ -93,6 +99,63 @@
   "table":"SEOCOMPODF",
   "data":
   [
+   {
+    "CLSNAME":"ZGCTS_WRGCTS_AUNIT",
+    "CMPNAME":"SELECT",
+    "VERSION":1,
+    "ALIAS":"",
+    "REDEFIN":"",
+    "EXPOSURE":0,
+    "STATE":1,
+    "EDITORDER":0,
+    "LOCKED":"",
+    "DISPID":0,
+    "R3RELEASE":"755",
+    "AUTHOR":"I079666",
+    "CREATEDON":"2021-12-01",
+    "CHANGEDBY":"",
+    "CHANGEDON":"0000-00-00",
+    "MTDDECLTYP":0,
+    "MTDABSTRCT":"",
+    "MTDFINAL":"",
+    "DSRNOTEOM":"",
+    "EDTX":"",
+    "MTDNEWEXC":"",
+    "MTDREPLACE":"",
+    "MTDOPTNL":"",
+    "MTDAMDPRDONLY":"",
+    "MTDAMDPCDSCLNT":"",
+    "ATTDECLTYP":0,
+    "ATTDYNAMIC":"",
+    "ATTGETMTD":"",
+    "ATTSETMTD":"",
+    "ATTRDONLY":"",
+    "ATTVALUE":"",
+    "ATTPERSIST":"",
+    "ATTBUSOBJ":"",
+    "ATTKEYFLD":"",
+    "ATTEXPVIRT":0,
+    "EVTDECLTYP":0,
+    "TYPDUMMY":"",
+    "TYPTYPE":0,
+    "TYPE":"",
+    "TABLEOF":"",
+    "SRCROW1":0,
+    "SRCCOLUMN1":0,
+    "SRCROW2":0,
+    "SRCCOLUMN2":0,
+    "REFCLSNAME":"",
+    "REFINTNAME":"",
+    "REFCMPNAME":"",
+    "BCMTDINST":"",
+    "BCMTDCAT":0,
+    "BCMTDDIA":"",
+    "BCMTDCOM":"",
+    "BCMTDSYN":0,
+    "BCEVTCAT":0,
+    "TYPESRC_LENG":0,
+    "TYPESRC":""
+   },
    {
     "CLSNAME":"ZGCTS_WRGCTS_AUNIT",
     "CMPNAME":"SUM",
@@ -106,7 +169,7 @@
     "DISPID":0,
     "R3RELEASE":"755",
     "AUTHOR":"I079666",
-    "CREATEDON":"2021-11-23",
+    "CREATEDON":"2021-11-30",
     "CHANGEDBY":"",
     "CHANGEDON":"0000-00-00",
     "MTDDECLTYP":0,
@@ -158,6 +221,12 @@
   [
    {
     "CLSNAME":"ZGCTS_WRGCTS_AUNIT",
+    "CMPNAME":"SELECT",
+    "LANGU":"E",
+    "DESCRIPT":""
+   },
+   {
+    "CLSNAME":"ZGCTS_WRGCTS_AUNIT",
     "CMPNAME":"SUM",
     "LANGU":"E",
     "DESCRIPT":""
@@ -199,7 +268,7 @@
     "LOCKED":"",
     "DISPID":0,
     "AUTHOR":"I079666",
-    "CREATEDON":"2021-11-23",
+    "CREATEDON":"2021-11-30",
     "CHANGEDBY":"",
     "CHANGEDON":"0000-00-00",
     "PARDECLTYP":0,
@@ -226,7 +295,7 @@
     "LOCKED":"",
     "DISPID":0,
     "AUTHOR":"I079666",
-    "CREATEDON":"2021-11-23",
+    "CREATEDON":"2021-11-30",
     "CHANGEDBY":"",
     "CHANGEDON":"0000-00-00",
     "PARDECLTYP":3,
@@ -290,8 +359,8 @@
     "CRELEASE":"",
     "DELFLAG":"",
     "TRANSLTTXT":"",
-    "CREATED_ON":"2021-11-23",
-    "CHECK_DATE":"2021-11-23",
+    "CREATED_ON":"2021-11-30",
+    "CHECK_DATE":"2021-11-30",
     "CHECK_CFG":""
    }
   ]
@@ -310,6 +379,12 @@
     "CLASSNAME":"ZGCTS_WRGCTS_AUNIT",
     "METHODINDX":1,
     "METHODNAME":"SUM",
+    "FLAGS":0
+   },
+   {
+    "CLASSNAME":"ZGCTS_WRGCTS_AUNIT",
+    "METHODINDX":2,
+    "METHODNAME":"SELECT",
     "FLAGS":0
    }
   ]
@@ -385,6 +460,19 @@
    },
    {
     "NAME":"ZGCTS_WRGCTS_AUNIT============CM001",
+    "VARCL":"X",
+    "DBAPL":"S",
+    "DBNA":"D$",
+    "SUBC":"I",
+    "APPL":"S",
+    "UNAM":"I079666",
+    "RMAND":"100",
+    "FIXPT":"X",
+    "LDBNAME":"D$S",
+    "UCCHECK":"X"
+   },
+   {
+    "NAME":"ZGCTS_WRGCTS_AUNIT============CM002",
     "VARCL":"X",
     "DBAPL":"S",
     "DBNA":"D$",
