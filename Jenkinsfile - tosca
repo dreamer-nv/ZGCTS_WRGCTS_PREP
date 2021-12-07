@@ -1,0 +1,10 @@
+pipeline {
+    agent any
+    stages {
+        stage ('Rut Tosca tests') {
+            steps {
+                tricentisCI newTricentisClientPath: '$COMMANDER_HOME\\ToscaCI\\Client\\ToscaCIClient.exe', configurationFilePath: 'C:\\Tosca_Projects\\Tosca_Workspaces\\Project02\\toscaConfig.xml', newEndpoint: 'http://localhost:8732/TOSCARemoteExecutionService/'
+            } // steps
+        } // stage
+    } // stages
+} // pipeline
