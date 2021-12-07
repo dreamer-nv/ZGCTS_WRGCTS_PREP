@@ -31,7 +31,15 @@ pipeline {
 
         stage ('Run ATC Checks') {
             steps {
-                abapEnvironmentRunATCCheck script: this
+                script {
+                        abapEnvironmentRunATCCheck script: this
+                        def checkstyle = scanForIssues tool: checkStyle(pattern: 'ATCResults.xml')
+                        publishIssues issues: [checkstyle], failedTotalAll: 1 //, failOnError: true
+                        if ( currentBuild.result == 'FAILURE' ) {
+                            echo 'ATC check failed!'
+                            checks_failed = true
+                        }
+                } // script
             } // steps
         } // stage
         
